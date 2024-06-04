@@ -65,3 +65,17 @@ let myDate = document.querySelector("#datee");
 
 const yes = new Date().getFullYear();
 myDate.innerHTML = yes;
+
+// Set onclick event for project cards
+var cardNodes = document.querySelector('.project').querySelectorAll('div.card');
+for (let i = 0; i < cardNodes.length; i++) {
+  let link = cardNodes[i].querySelector('a').getAttribute('href');
+  if (link) {
+    cardNodes[i].addEventListener('click', (event) => {
+      // Check if the clicked target is not the link icon
+      if (event.target.tagName.toLowerCase() !== 'i') {
+        window.open(link, '_blank');
+      }
+    });
+  }
+}
