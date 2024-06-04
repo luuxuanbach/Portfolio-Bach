@@ -69,16 +69,16 @@ myDate.innerHTML = yes;
 // Set onclick event for project cards
 var cardNodes = document.querySelector('.project').querySelectorAll('div.card');
 for (var i = 0; i < cardNodes.length; i++) {
-  var link = cardNodes[i].querySelector('a').getAttribute('href');
-  if (link) {
-    cardNodes[i].addEventListener('click', (event) => {
-      // Check if the clicked target is the <a> tag
-      if (event.target.tagName.toLowerCase() === 'a') {
-        // Stop the event from bubbling up to the parent div
-        event.stopPropagation();
-      } else {
+  cardNodes[i].addEventListener('click', (event) => {
+    // Check if the clicked target is the <a> tag
+    if (event.target.tagName.toLowerCase() === 'a') {
+      // Stop the event from bubbling up to the parent div
+      event.stopPropagation();
+    } else {
+      var link = cardNodes[i].querySelector('a').getAttribute('href');
+      if (link) {
         window.open(link, '_blank');
       }
-    });
-  }
+    }
+  });
 }
